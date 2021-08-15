@@ -8,14 +8,21 @@ public class PaddleMovement : MonoBehaviour
 	public KeyCode moveRight = KeyCode.D;
 	public float speed = 80f;
 	private Rigidbody2D racket_rbody;
+	private Vector3 initialPos;
 
 	void Start () {
 		racket_rbody = GetComponent<Rigidbody2D>();
+		initialPos = transform.position;
 	}
 	 
 	void FixedUpdate() {
-		makeMovableRacket();
+		if(GameManager.Instance.IsGameOver() || GameManager.Instance.IsStageClear()){
+			transform.position = initialPos;
+		}else{
+			makeMovableRacket();
+		}
 	}
+	
 
 	void makeMovableRacket() {
 		var velocity = racket_rbody.velocity;

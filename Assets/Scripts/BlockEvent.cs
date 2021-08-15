@@ -41,7 +41,7 @@ public class BlockEvent : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D hit) {
-        if(hit.gameObject.name == "Ball"){
+        if(hit.gameObject.tag == "Ball"){
             OnBlockGetHit();
             if(blockLives <= 0){
                OnBlockGetDestroy();
@@ -64,9 +64,10 @@ public class BlockEvent : MonoBehaviour
 
     void OnBlockGetDestroy(){
         var pm = particle.main;
+        BricksManager.Instance.RemainingBricks.Remove(this.gameObject);
+        GameManager.Instance.OnBrickEmpty();
 
         spriteBlock.enabled = false;
-
         particle.transform.position = transform.position;
         pm.startColor = spriteBlock.color;
         pm.loop = false;
