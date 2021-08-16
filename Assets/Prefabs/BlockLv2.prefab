@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockLives: 2
+  blockScore: 20
   spriteDamaged: {fileID: 21300000, guid: 7eb1371a24c3ddb4d9ba715bab385f87, type: 3}
   time: 0.2
   distance: 0.1

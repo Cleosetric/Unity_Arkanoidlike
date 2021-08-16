@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Brick
   - Ball
+  - Arrow
+  - Mob
   layers:
   - Default
   - TransparentFX

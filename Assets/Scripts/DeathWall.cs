@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class DeathWall : MonoBehaviour
 {
+    BallMovement ball;
+
+    void Start()
+    {
+        ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallMovement>();
+    }
+
      private void OnTriggerEnter2D(Collider2D hit)
     {
-        if (hit.gameObject.tag == "Ball")
+        if (hit.gameObject.tag == "Ball" ||  hit.gameObject.tag == "Mob")
         {
-            BallMovement ball = hit.GetComponent<BallMovement>();
+            AudioManager.instance.Play("LoseLive");
             GameManager.Instance.OnBallDeath();
             ball.RestartBall();
-            
         }
     }
 }

@@ -25,6 +25,16 @@ public class BricksManager : MonoBehaviour
 
     #endregion
 
+    public List<Collectibles> AvailableBuffs;
+    public List<Collectibles> AvailableDebuffs;
+
+    [Range(0, 100)]
+    public float BuffChance;
+
+    [Range(0, 100)]
+    public float DebuffChance;
+
+    [HideInInspector]
     public List<GameObject> RemainingBricks = new List<GameObject>();
 
     private void Start()
